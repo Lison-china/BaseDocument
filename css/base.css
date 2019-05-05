@@ -1,0 +1,62 @@
+* {
+    touch-action: pan-y;
+    padding: 0;
+    margin: 0;
+}
+
+div,
+form,
+ul,
+ol,
+li,
+span,
+p,
+dl,
+dt,
+dd,
+img {
+    border: 0 none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+ul,
+ol,
+li {
+    list-style: none
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+textarea {
+    -webkit-appearance: none;
+}
+
+input:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+input:focus,
+textarea:focus,
+button {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+::-webkit-scrollbar {
+    display: none
+}

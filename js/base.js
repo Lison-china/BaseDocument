@@ -1,24 +1,25 @@
-! function(e, t) { //手机端适配
-    var n = t.documentElement,
-        d = e.devicePixelRatio || 1;
-
-    function i() {
-        var e = n.clientWidth / 3.75;
-        n.style.fontSize = e + "px"
+//t:文本   s:时间
+(function(a) {
+    base = {
+        ok(t, s) { //提示框
+            const shtml = '<div class="ok">' + t + '</div>'
+            $('body').append(shtml)
+            setTimeout(function() {
+                $('.ok').remove()
+            }, s)
+        },
+        sendyzm(p) { //验证手机号
+            const str = /^1[34578]\d{9}$/
+            return str.test(p)
+        },
+        bodyScroll(event) { //禁止页面滚动
+            event.preventDefault();
+        }
     }
-    if (function e() { t.body ? t.body.style.fontSize = "16px" : t.addEventListener("DOMContentLoaded", e) }(), i(), e.addEventListener("resize", i), e.addEventListener("pageshow", function(e) { e.persisted && i() }), 2 <= d) {
-        var o = t.createElement("body"),
-            a = t.createElement("div");
-        a.style.border = ".5px solid transparent", o.appendChild(a), n.appendChild(o), n.removeChild(o)
-    }
-}(window, document)
-//手机端页面有弹出层时，不让页面滚动。
-function bodyScroll(event) {//禁止页面滚动
-    event.preventDefault();
-}
+})(window);
 //弹出层隐藏的时候调用
-document.body.removeEventListener('touchmove', bodyScroll, false);
+document.body.removeEventListener('touchmove', base.bodyScroll(), false);
 $("body").css({ "position": "initial", "height": "auto" });
 //弹出层显示的时候调用
-document.body.addEventListener('touchmove', bodyScroll, false);
+document.body.addEventListener('touchmove', base.bodyScroll(), false);
 $('body').css({ 'position': 'fixed', "width": "100%" });
